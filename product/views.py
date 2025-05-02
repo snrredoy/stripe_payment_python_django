@@ -5,7 +5,7 @@ from .models import Product
 # Create your views here.
 def addProduct(request):
     if request.method == "POST":
-        productForm = ProductForm(request.POST)
+        productForm = ProductForm(request.POST, request.FILES)
         if productForm.is_valid():
             productForm.save()
             return redirect('showProduct')

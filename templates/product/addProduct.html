@@ -4,7 +4,7 @@
 
 {% block body %}
 <!-- component -->
-<form action="" method="post" enctype="multipart/form-data">
+<form action="" method="post" enctype="multipart/form-data" >
     {% csrf_token %}
     <div class="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
         <div class="container max-w-screen-lg mx-auto">
@@ -47,6 +47,16 @@
                                     <input type="number" name="quantity" id="quantity"
                                         class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
                                         placeholder="" value="" />
+                                </div>
+
+                                <div class="md:col-span-5">
+                                    <label for="image">Product Image</label>
+                                    <input type="file" name="image" id="image" accept="image/*"
+                                        class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                                        onchange="previewImage(event)" />
+                                    <div class="mt-4">
+                                        <img id="image-preview" src="" alt="Image Preview" class="max-w-xs rounded shadow hidden">
+                                    </div>
                                 </div>
 
                                 <div class="md:col-span-5 text-right">
