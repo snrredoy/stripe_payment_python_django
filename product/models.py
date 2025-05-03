@@ -11,6 +11,12 @@ class Product(models.Model):
     def __str__(self):
         return f"{self.name}"
     
+    @property
+    def image_url(self):
+        if self.image:
+            return self.image.url
+        return None
+    
 
 class Order(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='order')

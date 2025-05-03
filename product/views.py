@@ -49,7 +49,7 @@ def create_checkout_session(request, pk):
                         "product_data":{
                             'name': product.name,
                             'description': product.description,
-                            # 'images': [product.image.url] if product.image and hasattr(product.image, 'url') and product.image.url.startswith('http') else ['https://via.placeholder.com/150']
+                            'images': [product.image]
                         },
                     },
                     'quantity': 1,
@@ -103,4 +103,5 @@ def webhook(request):
             is_paid = True,
             stripe_checkout_session_id = session['id']
         )
-        return HttpResponse(status=200)
+    
+    return HttpResponse(status=200)
